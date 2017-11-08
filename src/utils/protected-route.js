@@ -6,10 +6,10 @@ import { Route } from 'react-router-dom';
  * @param {boolean} authed describes user auth status
  * @param {*} rest any additional parameters
  */
-export default ({ component: Component, authed, ...args }) => (
+export default ({ component: Component, authenticated, ...args }) => (
     <Route
         {...rest}
-        render={(props) => authed === true ?
+        render={props => authenticated ?
             // user is authorized; proceed to route
             <Component {...props} /> :
             // user is not authorized: proceed to login
