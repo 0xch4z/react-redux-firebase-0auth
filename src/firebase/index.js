@@ -1,16 +1,14 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app'
 
 const config = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: REACT_APP_FIREBASE_AUTH_DOMAIN,
-    databaseURL: REACT_APP_FIREBASE_DB_URL,
-    projectId: REACT_APP_FIREBASE_PROJ_ID,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_FIREBASE_DB_URL,
+    projectId: process.env.REACT_APP_FIREBASE_PROJ_ID,
     storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
     messagingSenderId: process.env.REACT_APP_FIREBASE_MSG_SENDER_ID,
-};
+}
 
-firebase.initalizeApp(config);
-
-export const ref = firebase.database().ref();
-export const { auth } = firebase;
- 
+export const firebaseApp = firebase.initializeApp(config)
+export const firebaseDb = firebase.database()
+export const firebaseAuth = firebase.auth()
