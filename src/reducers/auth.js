@@ -10,7 +10,6 @@ export const initialState = {
 
 export default (state = initialState, action) => {
   const { payload, type } = action
-  console.log('TYPE: ', type)
   switch (type) {
     // add user to state
     case SIGN_IN_SUCCESS:
@@ -20,11 +19,9 @@ export default (state = initialState, action) => {
       }
     // reset state
     case SIGN_OUT_SUCCESS:
-    console.log('SIGN_OUT_SUCCESS BROUGHT TO REDUCER')
       return initialState
     // do nothing
     default:
-      console.log('UNDEFINED BROUGHT TO REDUCER')
       return state
   }
 }

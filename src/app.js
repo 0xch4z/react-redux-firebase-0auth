@@ -1,32 +1,26 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Route } from 'react-router-dom'
+import inject from 'react-tap-event-plugin'
 
-import SignInPage from './pages/sign-in'
-import { getAuth, isAuthenticated } from './selectors'
+import * as Page from './pages'
+import { Header } from './containers'
+import { Layout } from './components'
 
-const mapStateToProps = state => ({
-  auth: state.auth,
-})
+// for material
+inject()
 
-const App = (props) => {
-  const { user, authenticated } = props.auth
-  return (
-    <div>
-      <SignInPage />
-      <h1>
-        { authenticated ?
-          `Hey there, ${user.displayName}!` : 'Please login'
-        }
-      </h1>
-    </div>
-  )
-}
+const Heading = styled.h1`
+  background: #fff;
+  text-align: center;
+  font-family: 'Roboto';
+`
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    null,
-  )(App)
+export default () => (
+  <Layout>
+    <Route exact path="/" component={Page.Home} />
+    <Route path="/sign-in" component={Page.SignIn} />
+  </Layout>
 )

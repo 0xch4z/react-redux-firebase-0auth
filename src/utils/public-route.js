@@ -6,7 +6,7 @@ import { Route } from 'react-router-dom';
  * @param {boolean} authed describes user auth status
  * @param {*} rest any additional parameters
  */
-export default ({component: Component, authed, ...rest}) => (
+export default ({ component: Component, authed, ...rest }) => (
     <Route
         {...rest}
         render={(props) => authed === false

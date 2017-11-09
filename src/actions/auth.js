@@ -1,9 +1,9 @@
 import firebase from 'firebase'
+import { routerActions } from 'react-router-redux'
 
 import { firebaseAuth } from '../firebase'
 
 // action types
-export const INIT_AUTH = 'INIT_AUTH'
 export const SIGN_IN_ERROR = 'SIGN_IN_ERROR'
 export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS'
 export const SIGN_OUT_SUCCESS = 'SIGN_OUT_SUCCESS'
@@ -23,6 +23,7 @@ export const authenticate = (provider) => {
     try {
       const data = await firebaseAuth.signInWithPopup(provider)
       dispatch(signInSuccess(data))
+      dispatch(routerActions.push('/'))
     } catch (err) {
       console.error(`Error authenticating: ${err}`)
       dispatch(signInError(err))
