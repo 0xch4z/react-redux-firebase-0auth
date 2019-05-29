@@ -1,5 +1,7 @@
 # React Redux Firebase 0Auth
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Charliekenney23/react-redux-firebase-0auth.svg)](https://greenkeeper.io/)
+
 ## Setup development environment
 1. A clone the repo
 ```shell
